@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexa Website</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #ff6600;
+      color: #222;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 8px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: black;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 25px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .app-image {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 25px;
+      margin-bottom: 15px;
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    button,
+    .download-btn {
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    button:hover,
+    .download-btn:hover {
+      background: #1d4ed8;
+    }
+
+    .secondary {
+      background: #16a34a;
+    }
+
+    .secondary:hover {
+      background: #15803d;
+    }
+
+    #info {
+      margin-top: 20px;
+      padding: 15px;
+      background: #eef2ff;
+      border-radius: 10px;
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Nexa</h1>
+    <p>Apps & Downloads</p>
+  </header>
+
+  <div class="container">
+
+    <!-- APP CARD -->
+    <div class="card">
+
+      <!-- Your image -->
+      <img src="https://www.w3schools.com/html/img_girl.jpg" alt="Nexa 90" width="300"
+
+      <h2>Nexa 90</h2>
+
+      <p>
+        Welcome to Nexa 90. Choose an option below.
+      </p>
+
+      <div class="options">
+
+        <!-- Download option -->
+        <a href="Avast.exe"
+           class="download-btn"
+           download>
+          Download 
+        </a>
+
+        <!-- Information option -->
+        <button onclick="showInfo()">
+          Information
+        </button>
+
+        <!-- Share option -->
+        <button class="secondary" onclick="shareApp()">
+          Share
+        </button>
+
+      </div>
+
+      <div id="info">
+        <h3>Nexa 90</h3>
+        <p>Version: 1.0</p>
+        <p>Download the app using the button above.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Nexa. All rights reserved.
+  </footer>
+
+
+  <script>
+
+    function showInfo() {
+      const info = document.getElementById("info");
+
+      if (info.style.display === "none" ||
+          info.style.display === "") {
+        info.style.display = "block";
+      } else {
+        info.style.display = "none";
+      }
+    }
+
+    function shareApp() {
+      if (navigator.share) {
+
+        navigator.share({
+          title: "Nexa 90",
+          text: "Check out Nexa 90!",
+          url: window.location.href
+        });
+
+      } else {
+
+        alert("Your browser does not support sharing.");
+
+      }
+    }
+
+  </script>
+
+</body>
+</html>
